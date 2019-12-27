@@ -1,4 +1,5 @@
 from pathlib import Path
+import random
 
 import numpy as np
 from tqdm import tqdm
@@ -10,6 +11,9 @@ def train_test_split(files: list):
     train_percent = 0.75    # test_percent = 1-train_percent
     split_idx = int(len(files) * train_percent)
 
+    # randomize the files for the split
+    random.shuffle(files)
+    
     return files[:split_idx], files[split_idx:]
 
 
