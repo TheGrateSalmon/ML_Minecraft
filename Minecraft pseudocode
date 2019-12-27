@@ -1,0 +1,18 @@
+# Minecraft project pseudo-code
+
+# load a Minecraft world
+
+
+# segment the world into samples of 16x16 size (one chunk)
+
+
+# separate chunks into (training, testing) and (evaluation)
+
+# select features to use (e.g. x, y, z, block ID, etc.)
+
+
+
+# train GAN
+
+
+# evaluate GAN
