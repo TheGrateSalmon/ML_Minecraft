@@ -1,10 +1,5 @@
-# loads a Minecraft region into a NumPy array
+"""Loads a Minecraft Region into a NumPy array."""
 
-###################
-#                 #
-#     IMPORTS     #
-#                 #
-###################
 import numpy as np
 from tqdm import tqdm
 import pptk
@@ -18,8 +13,8 @@ import jnbt     # for reading Minecraft's .mca files
 #                   #
 #####################
 def load_data(world_name: str):
-    r""" Reads in data from a Minecraft world chunk region.
-    """
+    r"""Reads in data from a Minecraft world chunk region."""
+    
     generate = False
     do_filter = False
 

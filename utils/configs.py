@@ -39,9 +39,13 @@ class Config:
         self.num_z_in_chunk = 16
         self.num_y_in_chunk = 256
         self.num_features = np.load(self.all_raw_files[0]).shape[1]
-        
+
+        # model parameters
+        self.latent_dim = 100
+
         # hyperparameters
         if self.mode == "train":
+            self.batch_size = 64
             self.epochs = 100
             self.lr = 0.001
 
