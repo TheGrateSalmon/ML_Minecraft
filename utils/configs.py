@@ -29,10 +29,15 @@ def find_dir(path: Path, desired_dir="data"):
 class Config:
     """Contains variables such as data directories or hyperparameters."""
 
-    def __init__(self, mode: str="train"):
-        self.mode = mode
+    def __init__(self):
         #self.data_dir = Path("E:\\User\\Documents\\Projects\\data\\minecraft\\")
-        self.data_dir = find_dir(Path().cwd())/"minecraft"
+        base_dir = kwargs.get("base_dir", Path().cwd())
+        self.data_dir = Path(find_dir(base_dir)/"minecraft")
+        self.weights_dir = Path(base_dir/"saved_models")
+
+        # make sure directories exist and create if not
+        for path in [self.data_dir, self.weights_dir]:
+            path.mkdir(parents=True, exist_ok=True)
 
         # number of blocks in a chunk for each axis (x,y, and z)
         self.num_x_in_chunk = 16
@@ -48,8 +53,13 @@ class Config:
         self.epochs = 100
         self.lr = 0.001
         self.loss = "chamfer"   # either 'chamfer' or 'emd'
+        
+        # encoder
         self.normal_mu = 0.0
         self.normal_std = 0.2
+
+        # discriminator
+        self.gp_lambda = 10
 
         # optimizer hyparameters
         self.eg_optimizer_type = "Adam"
