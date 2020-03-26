@@ -56,7 +56,9 @@ class Config:
 
         https://docs.python.org/3/library/pathlib.html#pathlib.Path.rglob
         """
+        
         files = list((self.data_dir/"raw").rglob("*.npy"))
+        
         return files
 
     @property
@@ -65,7 +67,9 @@ class Config:
 
         https://docs.python.org/3/library/pathlib.html#pathlib.Path.rglob
         """
+        
         files = []
         for extension in ["mca", "mcr"]:
             files.extend((self.data_dir/"regions").rglob(f"*.{extension}"))
+        
         return files
