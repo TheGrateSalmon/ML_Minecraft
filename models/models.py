@@ -4,8 +4,7 @@ import torch
 import torch.nn as nn
 
 
-class Encoder(nn.Module):
-    
+class Encoder(nn.Module):  
     def __init__(self, z_dim: int=100, **kwargs):
         super(Encoder, self).__init__(**kwargs)
         self.in_features = in_features
